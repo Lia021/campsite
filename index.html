@@ -55,6 +55,8 @@
         <a-asset-item id="test" src="https://rawgit.com/Lia021/montreal/master/bleu%20hat/hat%206.dae"></a-asset-item>
         <a-asset-item id="red" src="https://rawgit.com/Lia021/montreal/master/rouge%20hat/red%20Hat.dae"></a-asset-item>
         <a-asset-item id="knife" src="https://rawgit.com/Lia021/montreal/master/knife%202/knife%206.dae"></a-asset-item>
+        <a-asset-item id="tree" src="https://rawgit.com/Lia021/montreal/master/test%20tree/test%20tree.dae"></a-asset-item>
+         <a-asset-item id="star" src="https://rawgit.com/Lia021/montreal/master/star/star.dae"></a-asset-item>
 
         <a-mixin id="knife" collada-model="#knife" collapse-model></a-mixin>
 
@@ -90,6 +92,15 @@
       <!--model 4-->
 
       <a-entity position="0 1.67 -1" mixin="knife" instantiator="on: click;group: knife; mixin: knife parent-to-left-hand"></a-entity>
+
+       <!--model 5-->
+
+      <a-entity position="21 0 25" n-mesh-collider="type: environment; convex: false" scale="3 3 3"collada-model="#tree"></a-entity>
+      
+       <!--model 6-->
+
+      <a-entity position="21.40 3.50 25" n-mesh-collider="type: environment; convex: false"collada-model="#star"><a-animation attribute="rotation" dur="16000" fill="forwards" to="0 360 0" repeat="indefinite" easing="linear">
+      </a-animation></a-entity>
 
       <!--lift 1 -->
       <a-box src="https://rawgit.com/Lia021/montreal/master/build%204/Granite_Dark_Gray.jpg" rotation="-90 0 0" width="3.70" height="4.90" depth="0.1" position="-7 0 4.80" n-mesh-collider="enabled: true; type: environment">
