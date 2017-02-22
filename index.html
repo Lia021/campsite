@@ -57,7 +57,15 @@
         <a-asset-item id="knife" src="https://rawgit.com/Lia021/montreal/master/knife%202/knife%206.dae"></a-asset-item>
         <a-asset-item id="tree" src="https://rawgit.com/Lia021/montreal/master/test%20tree/test%20tree.dae"></a-asset-item>
          <a-asset-item id="star" src="https://rawgit.com/Lia021/montreal/master/star/star.dae"></a-asset-item>
-
+           <a-asset-item id="table" src="https://rawgit.com/Lia021/montreal/master/table/table.dae"></a-asset-item>
+        <a-asset-item id="cake" src="https://rawgit.com/Lia021/montreal/master/cake/cake.dae"></a-asset-item>
+          <a-asset-item id="altspace" src="https://rawgit.com/Lia021/theater-space/master/Altspace%20symbol/Altspace%20symbol1.dae"></a-asset-item>
+          <a-asset-item id="pizza" src="https://rawgit.com/Lia021/model/master/pizza/untitled.dae"></a-asset-item> 
+        <a-asset-item id="box" src="https://rawgit.com/Lia021/model/master/pizza%20box/untitled.dae"></a-asset-item> 
+            <a-asset-item id="eye" src="https://rawgit.com/Lia021/montreal/master/eye/untitled.dae"></a-asset-item> 
+          <a-asset-item id="guest" src="https://rawgit.com/Lia021/model/master/guest/lia%20toy.dae"></a-asset-item> 
+        
+        
         <a-mixin id="knife" collada-model="#knife" collapse-model></a-mixin>
 
         <a-mixin id="parent-to-left-hand" position="0.1 -0.03 -0.18" rotation="90 90 0" n-skeleton-parent="part: hand; side: left;" sync sync-n-skeleton-parent></a-mixin>
@@ -71,6 +79,10 @@
         <a-mixin id="red" collada-model="#red" collapse-model></a-mixin>
 
         <a-mixin id="parent-to-head" position="0 0.16 0" rotation="0 0 0" n-skeleton-parent="part:head;" sync sync-n-skeleton-parent></a-mixin>
+
+        <a-mixin id="guest" collada-model="#guest" collapse-model></a-mixin>
+
+        <a-mixin id="parent-to-right-hand" position="0.1 0 -0.18" rotation="90 90 0" n-skeleton-parent="part: hand; side: right;" sync sync-n-skeleton-parent></a-mixin>
 
       </a-assets>
       <!--skybox-->
@@ -102,6 +114,34 @@
       <a-entity position="21.40 3.50 25" n-mesh-collider="type: environment; convex: false"collada-model="#star"><a-animation attribute="rotation" dur="16000" fill="forwards" to="0 360 0" repeat="indefinite" easing="linear">
       </a-animation></a-entity>
 
+         <!--model 7-->
+
+      <a-entity position="1 0 -5.87" n-mesh-collider="type: environment; convex: false" rotation="0 90 0"scale="1.50 1.50 1.50"collada-model="#table"></a-entity>
+         <!--model 8-->
+
+      <a-entity position="1 1.30 -5.80" n-mesh-collider="type: environment; convex: false" collada-model="#cake"></a-entity>
+          <!--model 9-->
+
+      <a-entity position="1 2.40 -5.80" n-mesh-collider="type: environment; convex: false" collada-model="#altspace"><a-animation attribute="rotation" dur="16000" fill="forwards" to="0 360 0" repeat="indefinite" easing="linear">
+      </a-animation></a-entity>
+      
+        <!--model 10-->
+
+      <a-entity position="1 0 5.87" n-mesh-collider="type: environment; convex: false" rotation="0 90 0"scale="1.50 1.50 1.50"collada-model="#table"></a-entity> 
+        <!--model 11-->
+
+      <a-entity position="1 0.99 5.87" n-mesh-collider="type: environment; convex: false" collada-model="#pizza"></a-entity> 
+       <!--model 12-->
+
+      <a-entity position="1 0.95 5.87" n-mesh-collider="type: environment; convex: false" rotation="0 90 0"scale="1.30 1.30 1.30"collada-model="#box"></a-entity> 
+       <!--model 12-->
+ <a-entity position="25 10 -25" altspace-look-at> 
+      <a-entity position="0 -1 -1" rotation="0 -90 0" scale="3 3 3"collada-model="#eye"></a-entity>
+    </a-entity>
+       <!--model 13-->
+
+      <a-entity position="-7 0.50 -4.80" mixin="guest"instantiator="on: click;group: guest; mixin: guest parent-to-right-hand"></a-entity>
+      
       <!--lift 1 -->
       <a-box src="https://rawgit.com/Lia021/montreal/master/build%204/Granite_Dark_Gray.jpg" rotation="-90 0 0" width="3.70" height="4.90" depth="0.1" position="-7 0 4.80" n-mesh-collider="enabled: true; type: environment">
         <a-animation attribute="position" direction='alternate' from='-7 0 4.80' to='-7 4.80 4.80' ease-in-out='linear' dur='11000' repeat='indefinite' />
@@ -119,10 +159,15 @@
         <a-animation attribute="position" direction='alternate' from='-7 16 -4.90' to='-7 20 -4.90' ease-in-out='linear' dur='11000' repeat='indefinite' />
       </a-box>
       <!--lift 5 -->
-      <a-box src="https://rawgit.com/Lia021/montreal/master/build%204/Granite_Dark_Gray.jpg" rotation="-90 0 0" width="4" height="3.10" depth="0.1" position="0.40 21 4.90" n-mesh-collider="enabled: true; type: environment">
+      <a-box src="https://rawgit.com/Lia021/montreal/master/build%204/Granite_Dark_Gray.jpg" rotation="-90 0 0" width="5" height="3.10" depth="0.1" position="0.40 21 4.90" n-mesh-collider="enabled: true; type: environment">
         <a-animation attribute="position" direction='alternate' from='0.40 21 4.90' to='0.40 24.15 4.90' ease-in-out='linear' dur='11000' repeat='indefinite' />
       </a-box>
-
+ 
+      <!--lift 6 -->
+      <a-box src="https://rawgit.com/Lia021/montreal/master/build%204/Granite_Dark_Gray.jpg" rotation="-90 0 0" width="3.70" height="4.90" depth="0.1" position="-11 0 4.80" n-mesh-collider="enabled: true; type: environment">
+        <a-animation attribute="position" direction='alternate' from='-11 0 4.80' to='-11 30 4.80' ease-in-out='linear' dur='13000' repeat='indefinite' />
+      </a-box>
+      
       <!--goal-->
       <a-entity position="0 24.15 0" n-object='res: objects/cup'></a-entity>
       <!--protect coin-->
@@ -139,16 +184,18 @@
       <!--Snowman Body 3-->
       <a-sphere position="15 0.5 30" src="https://rawgit.com/Lia021/montreal/master/523-snow--on-the-ground-seamless-texture.jpg" radius="0.48" segments-height="5" segments-width="10"></a-sphere>
       <a-sphere position="15 1.1 30" src="https://rawgit.com/Lia021/montreal/master/523-snow--on-the-ground-seamless-texture.jpg" radius="0.40" segments-height="5" segments-width="10"></a-sphere>
-      <!--Snowman Body 4-->
+      <!--Snowman Body 5-->
       <a-sphere position="15 0.5 25" src="https://rawgit.com/Lia021/montreal/master/523-snow--on-the-ground-seamless-texture.jpg" radius="0.48" segments-height="5" segments-width="10"></a-sphere>
       <a-sphere position="15 1.1 25" src="https://rawgit.com/Lia021/montreal/master/523-snow--on-the-ground-seamless-texture.jpg" radius="0.40" segments-height="5" segments-width="10"></a-sphere>
-      <!--Snowman Body 5-->
+      <!--Snowman Body 6-->
       <a-sphere position="15 0.5 18" src="https://rawgit.com/Lia021/montreal/master/523-snow--on-the-ground-seamless-texture.jpg" radius="0.48" segments-height="5" segments-width="10"></a-sphere>
       <a-sphere position="15 1.1 18" src="https://rawgit.com/Lia021/montreal/master/523-snow--on-the-ground-seamless-texture.jpg" radius="0.40" segments-height="5" segments-width="10"></a-sphere>
-      <!--Snowman Body 6-->
+      <!--Snowman Body 7-->
       <a-sphere position="35 0.5 25" src="https://rawgit.com/Lia021/montreal/master/523-snow--on-the-ground-seamless-texture.jpg" radius="0.48" segments-height="5" segments-width="10"></a-sphere>
       <a-sphere position="35 1.1 25" src="https://rawgit.com/Lia021/montreal/master/523-snow--on-the-ground-seamless-texture.jpg" radius="0.40" segments-height="5" segments-width="10"></a-sphere>
-
+     <!--bluespace-->
+      <a-sphere position="25 8 -25" src="https://rawgit.com/Lia021/montreal/master/bluespace.jpg" side="back" radius="15" altspace-cursor-collider="enabled: false"></a-sphere>
+      <a-circle src="https://rawgit.com/Lia021/montreal/master/bluespace.jpg" position="25 0.1 -25" side="double" radius="12.70" rotation="-90 0 0" altspace-cursor-collider="enabled: false"></a-circle>
 
 
 
