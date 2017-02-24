@@ -83,6 +83,9 @@
         <a-asset-item id="icecream" src="https://rawgit.com/Lia021/theater-space/master/ice/c-ice.dae"></a-asset-item>
         <a-asset-item id="base1" src="https://rawgit.com/Lia021/model/master/theater/lia%20theater2.dae"></a-asset-item>
         <a-asset-item id="chair" src="https://rawgit.com/Lia021/model/master/theaterchair/lia%20theather%20chair.dae"></a-asset-item>
+         <a-asset-item id="grill" src="https://rawgit.com/Lia021/montreal/master/grill/untitled.dae"></a-asset-item>
+        <a-asset-item id="pighead" src="https://rawgit.com/Lia021/montreal/master/pig%20head/pig%20head.dae"></a-asset-item>
+
 
 
         <a-mixin id="knife" collada-model="#knife" collapse-model></a-mixin>
@@ -131,11 +134,11 @@
 
       <!--model 5-->
 
-      <a-entity position="21 0 25" n-mesh-collider="type: environment; convex: false" scale="3 3 3" collada-model="#tree"></a-entity>
+      <a-entity position="21 0 30" n-mesh-collider="type: environment; convex: false" scale="3 3 3" collada-model="#tree"></a-entity>
 
       <!--model 6-->
 
-      <a-entity position="21 4.04 25" n-mesh-collider="type: environment; convex: false" collada-model="#star">
+      <a-entity position="21 4.04 30" n-mesh-collider="type: environment; convex: false" collada-model="#star">
         <a-animation attribute="rotation" dur="16000" fill="forwards" to="0 360 0" repeat="indefinite" easing="linear">
         </a-animation>
       </a-entity>
@@ -231,6 +234,22 @@
     <!--model 33-->
 
     <a-entity position="-35 0 19" rotation="0 180 0" altspace-cursor-collider="enabled: false" collada-model="#chair"></a-entity>
+       <!--model 34-->
+
+    <a-entity position="-20 0 0" scale="3 1.50 3"n-mesh-collider="type: environment; convex: false" collada-model="#grill"></a-entity>
+      
+       <!--model 34-->
+
+    <a-entity position="-20 1 0.50" scale="1.70 1.50 1.50"n-mesh-collider="type: environment; convex: false" collada-model="#pighead"></a-entity>
+       <!--model 34-->
+
+    <a-entity position="-20 1 -0.40" scale="1.70 1.50 1.50"n-mesh-collider="type: environment; convex: false" collada-model="#guest"></a-entity>
+      <!--fire-->
+      <a-entity n-object='res: effects/fire'position="-20 1.20 -0.40"></a-entity>
+      <a-entity n-object='res: effects/fire'position="-20 1.20 0.50"></a-entity>
+      <a-entity n-object='res: effects/smoke'position="-20 1.20 0.50"></a-entity>
+      <a-entity n-object='res:effects/smoke'position="-20 1.20 -0.40"></a-entity>
+      
       <!--bath water-->
       <a-cylinder src="https://rawgit.com/Lia021/theater-space/master/lavender_texture.jpg" position="1 0.60 43" altspace-cursor-collider="enabled: false" height="0.90" radius="0.50"></a-cylinder>
       <a-cylinder src="https://rawgit.com/Lia021/theater-space/master/pepper.jpg" position="1 0.60 39" height="0.90" altspace-cursor-collider="enabled: false" radius="0.50"></a-cylinder>
@@ -276,26 +295,26 @@
       <!--protect coin-->
       <a-entity position="0 1 2" n-spawner='res: interactables/coin'></a-entity>
       <!--winter-->
-      <a-sphere position="25 8 25" src="https://rawgit.com/Lia021/montreal/master/bJ25XmT.jpg" side="back" radius="15" altspace-cursor-collider="enabled: false"></a-sphere>
-      <a-circle src="https://rawgit.com/Lia021/montreal/master/523-snow--on-the-ground-seamless-texture.jpg" position="25 0.1 25" side="double" radius="12.70" rotation="-90 0 0" altspace-cursor-collider="enabled: false"></a-circle>
+      <a-sphere position="25 8 30" src="https://rawgit.com/Lia021/montreal/master/bJ25XmT.jpg" side="back" radius="15" altspace-cursor-collider="enabled: false"></a-sphere>
+      <a-circle src="https://rawgit.com/Lia021/montreal/master/523-snow--on-the-ground-seamless-texture.jpg" position="25 0.1 30" side="double" radius="12.70" rotation="-90 0 0" altspace-cursor-collider="enabled: false"></a-circle>
       <!--Snowman Body-->
+      <a-sphere position="25 0.5 30" src="https://rawgit.com/Lia021/montreal/master/523-snow--on-the-ground-seamless-texture.jpg" radius="0.48" segments-height="5" segments-width="10"></a-sphere>
+      <a-sphere position="25 1.1 30" src="https://rawgit.com/Lia021/montreal/master/523-snow--on-the-ground-seamless-texture.jpg" radius="0.40" segments-height="5" segments-width="10"></a-sphere>
+      <!--Snowman Body 2-->
       <a-sphere position="25 0.5 25" src="https://rawgit.com/Lia021/montreal/master/523-snow--on-the-ground-seamless-texture.jpg" radius="0.48" segments-height="5" segments-width="10"></a-sphere>
       <a-sphere position="25 1.1 25" src="https://rawgit.com/Lia021/montreal/master/523-snow--on-the-ground-seamless-texture.jpg" radius="0.40" segments-height="5" segments-width="10"></a-sphere>
-      <!--Snowman Body 2-->
-      <a-sphere position="25 0.5 15" src="https://rawgit.com/Lia021/montreal/master/523-snow--on-the-ground-seamless-texture.jpg" radius="0.48" segments-height="5" segments-width="10"></a-sphere>
-      <a-sphere position="25 1.1 15" src="https://rawgit.com/Lia021/montreal/master/523-snow--on-the-ground-seamless-texture.jpg" radius="0.40" segments-height="5" segments-width="10"></a-sphere>
       <!--Snowman Body 3-->
-      <a-sphere position="15 0.5 30" src="https://rawgit.com/Lia021/montreal/master/523-snow--on-the-ground-seamless-texture.jpg" radius="0.48" segments-height="5" segments-width="10"></a-sphere>
-      <a-sphere position="15 1.1 30" src="https://rawgit.com/Lia021/montreal/master/523-snow--on-the-ground-seamless-texture.jpg" radius="0.40" segments-height="5" segments-width="10"></a-sphere>
+      <a-sphere position="20 0.5 36" src="https://rawgit.com/Lia021/montreal/master/523-snow--on-the-ground-seamless-texture.jpg" radius="0.48" segments-height="5" segments-width="10"></a-sphere>
+      <a-sphere position="20 1.1 36" src="https://rawgit.com/Lia021/montreal/master/523-snow--on-the-ground-seamless-texture.jpg" radius="0.40" segments-height="5" segments-width="10"></a-sphere>
       <!--Snowman Body 5-->
-      <a-sphere position="15 0.5 25" src="https://rawgit.com/Lia021/montreal/master/523-snow--on-the-ground-seamless-texture.jpg" radius="0.48" segments-height="5" segments-width="10"></a-sphere>
-      <a-sphere position="15 1.1 25" src="https://rawgit.com/Lia021/montreal/master/523-snow--on-the-ground-seamless-texture.jpg" radius="0.40" segments-height="5" segments-width="10"></a-sphere>
+      <a-sphere position="15 0.5 35" src="https://rawgit.com/Lia021/montreal/master/523-snow--on-the-ground-seamless-texture.jpg" radius="0.48" segments-height="5" segments-width="10"></a-sphere>
+      <a-sphere position="15 1.1 35" src="https://rawgit.com/Lia021/montreal/master/523-snow--on-the-ground-seamless-texture.jpg" radius="0.40" segments-height="5" segments-width="10"></a-sphere>
       <!--Snowman Body 6-->
-      <a-sphere position="15 0.5 18" src="https://rawgit.com/Lia021/montreal/master/523-snow--on-the-ground-seamless-texture.jpg" radius="0.48" segments-height="5" segments-width="10"></a-sphere>
-      <a-sphere position="15 1.1 18" src="https://rawgit.com/Lia021/montreal/master/523-snow--on-the-ground-seamless-texture.jpg" radius="0.40" segments-height="5" segments-width="10"></a-sphere>
+      <a-sphere position="15 0.5 28" src="https://rawgit.com/Lia021/montreal/master/523-snow--on-the-ground-seamless-texture.jpg" radius="0.48" segments-height="5" segments-width="10"></a-sphere>
+      <a-sphere position="15 1.1 28" src="https://rawgit.com/Lia021/montreal/master/523-snow--on-the-ground-seamless-texture.jpg" radius="0.40" segments-height="5" segments-width="10"></a-sphere>
       <!--Snowman Body 7-->
-      <a-sphere position="35 0.5 25" src="https://rawgit.com/Lia021/montreal/master/523-snow--on-the-ground-seamless-texture.jpg" radius="0.48" segments-height="5" segments-width="10"></a-sphere>
-      <a-sphere position="35 1.1 25" src="https://rawgit.com/Lia021/montreal/master/523-snow--on-the-ground-seamless-texture.jpg" radius="0.40" segments-height="5" segments-width="10"></a-sphere>
+      <a-sphere position="35 0.5 35" src="https://rawgit.com/Lia021/montreal/master/523-snow--on-the-ground-seamless-texture.jpg" radius="0.48" segments-height="5" segments-width="10"></a-sphere>
+      <a-sphere position="35 1.1 35" src="https://rawgit.com/Lia021/montreal/master/523-snow--on-the-ground-seamless-texture.jpg" radius="0.40" segments-height="5" segments-width="10"></a-sphere>
       <!--bluespace-->
       <a-sphere position="50 9 -25" src="https://rawgit.com/Lia021/montreal/master/boxspace.jpg" side="back" radius="20" altspace-cursor-collider="enabled: false"></a-sphere>
       <a-circle src="https://rawgit.com/Lia021/montreal/master/boxspace.jpg" position="50 0.1 -25" side="double" radius="17.85" rotation="-90 0 0" altspace-cursor-collider="enabled: false"></a-circle>
