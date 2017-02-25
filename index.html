@@ -62,7 +62,6 @@
         <a-asset-item id="altspace" src="https://rawgit.com/Lia021/theater-space/master/Altspace%20symbol/Altspace%20symbol1.dae"></a-asset-item>
         <a-asset-item id="pizza" src="https://rawgit.com/Lia021/model/master/pizza/untitled.dae"></a-asset-item>
         <a-asset-item id="box" src="https://rawgit.com/Lia021/model/master/pizza%20box/untitled.dae"></a-asset-item>
-        <a-asset-item id="eye" src="https://rawgit.com/Lia021/montreal/master/eye/untitled.dae"></a-asset-item>
         <a-asset-item id="guest" src="https://rawgit.com/Lia021/model/master/guest/lia%20toy.dae"></a-asset-item>
         <a-asset-item id="slice" src="https://rawgit.com/Lia021/model/master/pizza%20slice%202/untitled.dae"></a-asset-item>
         <a-asset-item id="plate" src="https://rawgit.com/Lia021/model/master/plate/untitled.dae"></a-asset-item>
@@ -73,20 +72,10 @@
         <a-asset-item id="candy" src="https://rawgit.com/Lia021/theater-space/master/candy/spacecandy.dae"></a-asset-item>
         <a-asset-item id="spacedonut" src="https://rawgit.com/Lia021/theater-space/master/Donut/spaceDonut.dae"></a-asset-item>
         <a-asset-item id="register" src="https://rawgit.com/Lia021/theater-space/master/register/cash%20register.dae"></a-asset-item>
-        <a-asset-item id="bathhouse" src="https://rawgit.com/Lia021/model/master/bath/bathhouse.dae"></a-asset-item>
-        <a-asset-item id="tub" src="https://rawgit.com/Lia021/model/master/tub/bathtub.dae"></a-asset-item>
-        <a-asset-item id="barrel" src="https://rawgit.com/Lia021/model/master/barrel/barrel%20bath.dae"></a-asset-item>
-        <a-asset-item id="digimon" src="https://rawgit.com/Lia021/theater-space/master/Heart/creepy-Heart.dae"></a-asset-item>
-        <a-asset-item id="galery" src="https://rawgit.com/Lia021/theater-space/master/fort/space%20fort.dae"></a-asset-item>
-        <a-asset-item id="lounge" src="https://rawgit.com/Lia021/model/master/chair%202.dae"></a-asset-item>
-        <a-asset-item id="soup" src="https://rawgit.com/Lia021/theater-space/master/soup/c-soup.dae"></a-asset-item>
-        <a-asset-item id="icecream" src="https://rawgit.com/Lia021/theater-space/master/ice/c-ice.dae"></a-asset-item>
-        <a-asset-item id="base1" src="https://rawgit.com/Lia021/model/master/theater/lia%20theater2.dae"></a-asset-item>
-        <a-asset-item id="chair" src="https://rawgit.com/Lia021/model/master/theaterchair/lia%20theather%20chair.dae"></a-asset-item>
         <a-asset-item id="grill" src="https://rawgit.com/Lia021/montreal/master/grill/untitled.dae"></a-asset-item>
         <a-asset-item id="pighead" src="https://rawgit.com/Lia021/montreal/master/pig%20head/pig%20head.dae"></a-asset-item>
-
-
+         <a-asset-item id="tent" src="https://rawgit.com/Lia021/montreal/master/tent/tent.dae"></a-asset-item>
+        <a-asset-item id="space-table" src="https://rawgit.com/Lia021/montreal/master/space%20table/space-table.dae"></a-asset-item>
 
         <a-mixin id="knife" collada-model="#knife" collapse-model></a-mixin>
 
@@ -165,105 +154,66 @@
       <!--model 12-->
 
       <a-entity position="1.40 0.85 6.30" n-mesh-collider="type: environment; convex: false" rotation="0 90 0" scale="1.30 1.30 1.30" collada-model="#box"></a-entity>
-      <!--model 12-->
-      <a-entity position="50 17 -25" altspace-look-at>
-        <a-entity position="0 -1 -1" rotation="0 -90 0" scale="3 3 3" collada-model="#eye"></a-entity>
-      </a-entity>
+   
       <!--model 13-->
 
       <a-entity position="-8.40 0.15 -6" mixin="guest" instantiator="on: click;group: guest; mixin: guest parent-to-right-hand"></a-entity>
       <!--model 14-->
 
-      <a-entity position="0.45 1 6.30" rotation="-90 -10 0" mixin="slice" instantiator="on: click;group:slice; mixin: slice parent-to-left-hand"></a-entity>
+      <a-entity position="0.40 1 6.30" rotation="-90 -10 0" mixin="slice" instantiator="on: click;group:slice; mixin: slice parent-to-left-hand"></a-entity>
 
       <!--model 11-->
-      <a-entity position="0.45 0.97 6.30" n-mesh-collider="type: environment; convex: false" collada-model="#plate"></a-entity>
+      <a-entity position="0.40 0.97 6.30" n-mesh-collider="type: environment; convex: false" collada-model="#plate"></a-entity>
+     <!--model 12-->
       <a-entity position="2 0 -30" rotation="0 190 0" n-mesh-collider="type: environment; convex: false" collada-model="#fort"></a-entity>
-      <!--model 12-->
-      <a-entity position="2 0.02 -30" rotation="0 189 0" n-mesh-collider="type: environment; convex: false" collada-model="#floor"></a-entity>
       <!--model 13-->
-      <a-entity position="2 0.02 -30.70" n-mesh-collider="type: environment; convex: false" rotation="0 189 0" collada-model="#table2"></a-entity>
+      <a-entity position="2 0.02 -30" rotation="0 189 0" n-mesh-collider="type: environment; convex: false" collada-model="#floor"></a-entity>
       <!--model 14-->
-      <a-entity position="2 0.80 -31" n-mesh-collider="type: environment; convex: false" rotation="0 189 0" collada-model="#bowel"></a-entity>
+      <a-entity position="2 0.02 -30.70" n-mesh-collider="type: environment; convex: false" rotation="0 189 0" collada-model="#table2"></a-entity>
       <!--model 15-->
-      <a-entity position="1.40 0.85 -30.60" n-mesh-collider="type: environment; convex: false" rotation="0 189 0" collada-model="#candy"></a-entity>
+      <a-entity position="2 0.80 -31" n-mesh-collider="type: environment; convex: false" rotation="0 189 0" collada-model="#bowel"></a-entity>
       <!--model 16-->
-      <a-entity position="2 0.85 -30.20" n-mesh-collider="type: environment; convex: false" rotation="0 189 0" collada-model="#spacedonut"></a-entity>
+      <a-entity position="1.40 0.85 -30.60" n-mesh-collider="type: environment; convex: false" rotation="0 189 0" collada-model="#candy"></a-entity>
       <!--model 17-->
-      <a-entity position="1.33 0 -27.50" n-mesh-collider="type: environment; convex: false" rotation="0 189 0" collada-model="#register"></a-entity>
+      <a-entity position="2 0.85 -30.20" n-mesh-collider="type: environment; convex: false" rotation="0 189 0" collada-model="#spacedonut"></a-entity>
       <!--model 18-->
-      <a-entity position="0 0 40" n-mesh-collider="type: environment; convex: false" collada-model="#bathhouse"></a-entity>
+      <a-entity position="1.33 0 -27.50" n-mesh-collider="type: environment; convex: false" rotation="0 189 0" collada-model="#register"></a-entity>
+
       <!--model 19-->
-      <a-entity position="-2 0 38" n-mesh-collider="type: environment; convex: false" scale="1.50 1.50 1.50" collada-model="#tub"></a-entity>
-      <!--model 20-->
-      <a-entity position="-2 0 42" n-mesh-collider="type: environment; convex: false" scale="1.50 1.50 1.50" collada-model="#tub"></a-entity>
-      <!--model 21-->
-      <a-entity position="1 0 39" n-mesh-collider="type: environment; convex: false" scale="1.40 1.40 1.40" collada-model="#barrel"></a-entity>
-      <!--model 22-->
-      <a-entity position="1 0 43" n-mesh-collider="type: environment; convex: false" scale="1.40 1.40 1.40" collada-model="#barrel"></a-entity>
-      <!--model 23-->
-      <a-entity position="30 0 0" rotation="0 180 0" n-mesh-collider="type: environment; convex: false" collada-model="#galery"></a-entity>
-      <!--model 24-->
-      <a-entity position="1 0 -32.12" n n-mesh-collider="type: environment; convex: false" rotation="0 -90 0" collada-model="#digimon"></a-entity>
-      <!--rest-->
-      <a-entity position="30 0 2" rotation="0 90 0" n-mesh-collider="type: environment; convex: false" collada-model="#lounge"></a-entity>
-      <!--model 25-->
-      <a-entity position="30 0.02 -2" n-mesh-collider="type: environment; convex: false" rotation="0 189 0" collada-model="#table2"></a-entity>
-      <!--model 26-->
-      <a-entity position="30 0.80 -2" n-mesh-collider="type: environment; convex: false" rotation="0 90 0" collada-model="#soup"></a-entity>
-      <!--model 27-->
-      <a-entity position="29.60 0.80 -1.70" n-mesh-collider="type: environment; convex: false" rotation="0 90 0" collada-model="#icecream"></a-entity>
-      <!--model 28-->
-      <a-entity position="30.40 0.85 -1.70" n-mesh-collider="type: environment; convex: false" rotation="0 189 0" collada-model="#spacedonut"></a-entity>
-      <!--model 29-->
-
-      <a-entity position="-50 0 25" n-mesh-collider="type: environment; convex: false" collada-model="#base1"></a-entity>
-
-      <!--model 30-->
-
-      <a-entity position="-40 0 25" rotation="0 180 0" altspace-cursor-collider="enabled: false" collada-model="#chair"></a-entity>
-
-      <!--model 31-->
-
-      <a-entity position="-40 0 19" rotation="0 180 0" altspace-cursor-collider="enabled: false" collada-model="#chair"></a-entity>
-
-      <!--model 32-->
-
-      <a-entity position="-35 0 25" rotation="0 180 0" altspace-cursor-collider="enabled: false" collada-model="#chair"></a-entity>
-
-      <!--model 33-->
-
-      <a-entity position="-35 0 19" rotation="0 180 0" altspace-cursor-collider="enabled: false" collada-model="#chair"></a-entity>
-      <!--model 34-->
 
       <a-entity position="-20 0 0" scale="3 1.50 3" n-mesh-collider="type: environment; convex: false" collada-model="#grill"></a-entity>
 
-      <!--model 34-->
+      <!--model 20-->
 
       <a-entity position="-20 1 0.50" scale="1.70 1.50 1.50" n-mesh-collider="type: environment; convex: false" collada-model="#pighead"></a-entity>
-      <!--model 34-->
+      <!--model 21-->
 
       <a-entity position="-20 1 -0.40" scale="1.70 1.50 1.50" n-mesh-collider="type: environment; convex: false" collada-model="#guest"></a-entity>
+     
+      <!--model 22-->
+
+      <a-entity position="-20 0.20 25" scale="1 1 1" n-mesh-collider="type: environment; convex: false" collada-model="#tent"></a-entity>
+      
+       <!--model 23-->
+
+      <a-entity position="-20 0.30 25" scale="2.50 2.50 2.50" n-mesh-collider="type: environment; convex: false" collada-model="#space-table"></a-entity>
+      
+           <!--model 24-->
+      <a-entity position="-20 1 25" n-mesh-collider="type: environment; convex: false" collada-model="#plate"></a-entity>
+       <!--model 25-->
+
+      <a-entity position="-20 1 25" scale="1.70 1.50 1.50" n-mesh-collider="type: environment; convex: false" collada-model="#pighead"></a-entity>
+      
+      
       <!--fire-->
       <a-entity n-object='res: effects/fire' position="-20 1.20 -0.40"></a-entity>
       <a-entity n-object='res: effects/fire' position="-20 1.20 0.50"></a-entity>
       <a-entity n-object='res: effects/smoke' position="-20 1.20 0.50"></a-entity>
       <a-entity n-object='res:effects/smoke' position="-20 1.20 -0.40"></a-entity>
 
-      <!--bath water-->
-      <a-cylinder src="https://rawgit.com/Lia021/theater-space/master/lavender_texture.jpg" position="1 0.60 43" altspace-cursor-collider="enabled: false" height="0.90" radius="0.50"></a-cylinder>
-      <a-cylinder src="https://rawgit.com/Lia021/theater-space/master/pepper.jpg" position="1 0.60 39" height="0.90" altspace-cursor-collider="enabled: false" radius="0.50"></a-cylinder>
-      <!--bathtub water-->
-      <a-box src="https://rawgit.com/Lia021/theater-space/master/maplesyrup.jpg" altspace-cursor-collider="enabled: false" depth="2.50" height="0.20" width="2.50" position="-2 0.10 38"></a-box>
-      <a-box src="https://rawgit.com/Lia021/theater-space/master/dab-texture-blue-flowers-full.jpg" altspace-cursor-collider="enabled: false" depth="2.50" height="0.20" width="2.50" position="-2 0.10 42"></a-box>
+
       <!--text1-->
       <a-entity n-billboard n-text="fontSize: 2; text:Sweetshop" position="1 1.70 -27"></a-entity>
-      <!--text2-->
-      <a-entity n-billboard n-text="fontSize: 2; text:Reststop" position="25 1.70 2"></a-entity>
-      <!--text3-->
-      <a-entity n-billboard n-text="fontSize: 2; text:women" position="4 1.70 43.50"></a-entity>
-      <!--text4-->
-      <a-entity n-billboard n-text="fontSize: 2; text:men" position="4 1.70 36.50"></a-entity>
       <!--lift 1 -->
       <a-box src="https://rawgit.com/Lia021/montreal/master/build%204/Granite_Dark_Gray.jpg" rotation="-90 0 0" width="3.70" height="4.90" depth="0.1" position="-7 0 4.80" n-mesh-collider="enabled: true; type: environment">
         <a-animation attribute="position" direction='alternate' from='-7 0 4.80' to='-7 4.80 4.80' ease-in-out='linear' dur='11000' repeat='indefinite' />
@@ -315,48 +265,6 @@
       <!--Snowman Body 7-->
       <a-sphere position="35 0.5 35" src="https://rawgit.com/Lia021/montreal/master/523-snow--on-the-ground-seamless-texture.jpg" radius="0.48" segments-height="5" segments-width="10"></a-sphere>
       <a-sphere position="35 1.1 35" src="https://rawgit.com/Lia021/montreal/master/523-snow--on-the-ground-seamless-texture.jpg" radius="0.40" segments-height="5" segments-width="10"></a-sphere>
-      <!--bluespace-->
-      <a-sphere position="50 9 -25" src="https://rawgit.com/Lia021/montreal/master/boxspace.jpg" side="back" radius="20" altspace-cursor-collider="enabled: false"></a-sphere>
-      <a-circle src="https://rawgit.com/Lia021/montreal/master/boxspace.jpg" position="50 0.1 -25" side="double" radius="17.85" rotation="-90 0 0" altspace-cursor-collider="enabled: false"></a-circle>
-
-      <!--photo of altspace-->
-      <a-image src="https://rawgit.com/Lia021/montreal/master/christmas/1yCZfqI.jpg" height="2" width="2" position="50 6 -34.65" side="front"></a-image>
-      <a-image src="https://rawgit.com/Lia021/montreal/master/christmas/Bid6KSc.jpg" height="2" width="2" position="50 3.50 -34.65" side="front"></a-image>
-      <a-image src="https://rawgit.com/Lia021/montreal/master/christmas/EHW2TBk.png" height="2" width="2" position="50 1 -34.65" side="front"></a-image>
-      <a-image src="https://rawgit.com/Lia021/montreal/master/christmas/KZnLxlm.jpg" height="2" width="2" position="50 6 -15.30" side="double"></a-image>
-      <a-image src="https://rawgit.com/Lia021/montreal/master/christmas/ML4yoza.jpg" height="2" width="2" position="50 3.50 -15.30" side="double"></a-image>
-      <a-image src="https://rawgit.com/Lia021/montreal/master/christmas/Mfb2n5p.jpg" height="2" width="2" position="50 1 -15.30" side="double"></a-image>
-      <a-image src="https://rawgit.com/Lia021/montreal/master/christmas/QF1myjy.jpg" height="2" width="2" position="40.15 6 -25" side="front" rotation="0 90 0"></a-image>
-      <a-image src="https://rawgit.com/Lia021/montreal/master/christmas/ajoDFOS.jpg" height="2" width="2" position="40.15 3.50 -25" side="front" rotation="0 90 0"></a-image>
-      <a-image src="https://rawgit.com/Lia021/montreal/master/christmas/dY8piLL.jpg" height="2" width="2" position="40.15 1 -25" side="front" rotation="0 90 0"></a-image>
-      <a-image src="https://rawgit.com/Lia021/montreal/master/christmas/gMyADha.jpg" height="2" width="2" position="59.60 6 -25" side="back" rotation="0 90 0"></a-image>
-      <a-image src="https://rawgit.com/Lia021/montreal/master/christmas/hxl6jBz.jpg" height="2" width="2" position="59.60 3.50 -25" side="back" rotation="0 90 0"></a-image>
-      <a-image src="https://rawgit.com/Lia021/montreal/master/christmas/oVPrZn8.jpg" height="2" width="2" position="59.60 1 -25" side="back" rotation="0 90 0"></a-image>
-      <a-image src="https://rawgit.com/Lia021/montreal/master/christmas/rnz7d9C.jpg" height="2" width="2" position="41.50 6 -30" side="double" rotation="0 60 0"></a-image>
-      <a-image src="https://rawgit.com/Lia021/montreal/master/christmas/vmKPpCl.jpg" height="2" width="2" position="41.50 3.50 -30" side="double" rotation="0 60 0"></a-image>
-      <a-image src="https://rawgit.com/Lia021/montreal/master/christmas/yq5roip.jpg" height="2" width="2" position="41.50 1 -30" side="double" rotation="0 60 0"></a-image>
-      <a-image src="https://rawgit.com/Lia021/montreal/master/christmas/KGKDcJl.jpg" height="2" width="2" position="58.50 6 -30" side="double" rotation="0 -60 0"></a-image>
-      <a-image src="https://rawgit.com/Lia021/montreal/master/christmas/pW7DbTw.jpg" height="2" width="2" position="58.50 3.50 -30" side="double" rotation="0 -60 0"></a-image>
-      <a-image src="https://rawgit.com/Lia021/montreal/master/christmas/wlhSUhB.jpg" height="2" width="2" position="58.50 1 -30" side="double" rotation="0 -60 0"></a-image>
-      <a-image src="https://rawgit.com/Lia021/montreal/master/christmas/Yi8QHbi.jpg" height="2" width="2" position="41.53 6 -20" side="back" rotation="0 -60 0"></a-image>
-      <a-image src="https://rawgit.com/Lia021/montreal/master/christmas/XY4iDaD.jpg" height="2" width="2" position="41.53 3.50 -20" side="back" rotation="0 -60 0"></a-image>
-      <a-image src="https://rawgit.com/Lia021/montreal/master/christmas/linda.jpg" height="2" width="2" position="41.53 1 -20" side="back" rotation="0 -60 0"></a-image>
-      <a-image src="https://rawgit.com/Lia021/montreal/master/christmas/cristal.jpg" height="2" width="2" position="58.50 6 -20" side="double" rotation="0 60 0"></a-image>
-      <a-image src="https://rawgit.com/Lia021/montreal/master/christmas/FFYVDqw.jpg" height="2" width="2" position="58.50 3.50 -20" side="double" rotation="0 60 0"></a-image>
-      <a-image src="https://rawgit.com/Lia021/montreal/master/christmas/udIhAdg.jpg" height="2" width="2" position="58.50 1 -20" side="double" rotation="0 60 0"></a-image>
-
-      <!--group photo sphere-->
-      <a-box src="https://rawgit.com/Lia021/montreal/master/group.jpg" width="5" height="5" depth="0.1" position="50 3 -25">
-        <a-animation attribute="rotation" dur="10000.5" fill="forwards" to="0 360 0" repeat="indefinite" easing="linear">
-        </a-animation>
-      </a-box>
-      <!--picture cyliner-->
-      <a-cylinder src="https://rawgit.com/Lia021/montreal/master/space.jpg" side="double" height="8" radius="10" position="50 3 -25" altspace-cursor-collider="enabled: false"></a-cylinder>
-      <!--pictureground-->
-      <a-circle src="https://rawgit.com/Lia021/montreal/master/floor.jpg" side="double" radius="10" position="50 0.11 -25" rotation="-90 0 0" altspace-cursor-collider="enabled: false"></a-circle>
-      <!--space-->
-      <a-sphere position="-50 9 25" src="https://rawgit.com/Lia021/montreal/master/space%20(1).jpg" side="back" radius="20" altspace-cursor-collider="enabled: false"></a-sphere>
-      <a-circle src="https://rawgit.com/Lia021/montreal/master/tille.jpg" position="-50 0.1 25" side="double" radius="17.85" rotation="-90 0 0" altspace-cursor-collider="enabled: false"></a-circle>
 
 
 
