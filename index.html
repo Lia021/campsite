@@ -74,8 +74,10 @@
         <a-asset-item id="register" src="https://rawgit.com/Lia021/theater-space/master/register/cash%20register.dae"></a-asset-item>
         <a-asset-item id="grill" src="https://rawgit.com/Lia021/montreal/master/grill/untitled.dae"></a-asset-item>
         <a-asset-item id="pighead" src="https://rawgit.com/Lia021/montreal/master/pig%20head/pig%20head.dae"></a-asset-item>
-         <a-asset-item id="tent" src="https://rawgit.com/Lia021/montreal/master/tent/tent.dae"></a-asset-item>
+        <a-asset-item id="tent" src="https://rawgit.com/Lia021/montreal/master/tent/tent.dae"></a-asset-item>
         <a-asset-item id="space-table" src="https://rawgit.com/Lia021/montreal/master/space%20table/space-table.dae"></a-asset-item>
+          <a-asset-item id="cup" src="https://rawgit.com/Lia021/montreal/master/cup/untitled.dae"></a-asset-item>
+
 
         <a-mixin id="knife" collada-model="#knife" collapse-model></a-mixin>
 
@@ -154,7 +156,7 @@
       <!--model 12-->
 
       <a-entity position="1.40 0.85 6.30" n-mesh-collider="type: environment; convex: false" rotation="0 90 0" scale="1.30 1.30 1.30" collada-model="#box"></a-entity>
-   
+
       <!--model 13-->
 
       <a-entity position="-8.40 0.15 -6" mixin="guest" instantiator="on: click;group: guest; mixin: guest parent-to-right-hand"></a-entity>
@@ -164,7 +166,7 @@
 
       <!--model 11-->
       <a-entity position="0.40 0.97 6.30" n-mesh-collider="type: environment; convex: false" collada-model="#plate"></a-entity>
-     <!--model 12-->
+      <!--model 12-->
       <a-entity position="2 0 -30" rotation="0 190 0" n-mesh-collider="type: environment; convex: false" collada-model="#fort"></a-entity>
       <!--model 13-->
       <a-entity position="2 0.02 -30" rotation="0 189 0" n-mesh-collider="type: environment; convex: false" collada-model="#floor"></a-entity>
@@ -189,23 +191,24 @@
       <!--model 21-->
 
       <a-entity position="-20 1 -0.40" scale="1.70 1.50 1.50" n-mesh-collider="type: environment; convex: false" collada-model="#guest"></a-entity>
-     
+
       <!--model 22-->
 
       <a-entity position="-20 0.20 25" scale="1 1 1" n-mesh-collider="type: environment; convex: false" collada-model="#tent"></a-entity>
-      
-       <!--model 23-->
+
+      <!--model 23-->
 
       <a-entity position="-20 0.30 25" scale="2.50 2.50 2.50" n-mesh-collider="type: environment; convex: false" collada-model="#space-table"></a-entity>
-      
-           <!--model 24-->
+
+      <!--model 24-->
       <a-entity position="-20 1 25" n-mesh-collider="type: environment; convex: false" collada-model="#plate"></a-entity>
-       <!--model 25-->
+      <!--model 25-->
 
       <a-entity position="-20 1 25" scale="1.70 1.50 1.50" n-mesh-collider="type: environment; convex: false" collada-model="#pighead"></a-entity>
-      
-      
-      <!--fire-->
+       <!--model 26-->
+
+      <a-entity position="-20 1 26" n-mesh-collider="type: environment; convex: false" collada-model="#cup"></a-entity>
+     <!--fire-->
       <a-entity n-object='res: effects/fire' position="-20 1.20 -0.40"></a-entity>
       <a-entity n-object='res: effects/fire' position="-20 1.20 0.50"></a-entity>
       <a-entity n-object='res: effects/smoke' position="-20 1.20 0.50"></a-entity>
