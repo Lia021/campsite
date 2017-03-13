@@ -131,8 +131,8 @@
       <!--campfire song-->
 
     <a-entity position="7.50 -3.25 0.20">
-      <a-entity id="pc-campfire" n-sound="on: campfire; src:https://cdn.rawgit.com/Lia021/sound/master/The_Campfire_Song_Song_-_The_Campfire_Song_Song.ogg;"></a-entity>
-      <a-entity id="gear-campfire" n-sound="on: campfire; src:https://cdn.rawgit.com/Lia021/sound/master/The%20Campfire%20Song%20Song%20-%20The%20Campfire%20Song%20Song.mp3;"></a-entity>
+      <a-entity id="pc-campfire"  sync="own-on: s" sync-n-sound n-sound="on: campfire; src:https://cdn.rawgit.com/Lia021/sound/master/The_Campfire_Song_Song_-_The_Campfire_Song_Song.ogg;"></a-entity>
+      <a-entity id="gear-campfire" sync="own-on: s" sync-n-sound n-sound="on: campfire; src:https://cdn.rawgit.com/Lia021/sound/master/The%20Campfire%20Song%20Song%20-%20The%20Campfire%20Song%20Song.mp3;"></a-entity>
       <a-entity wire="on: click; emit: campfire; targets: #pc-campfire, #gear-campfire;" rotation="0 140 0" collada-model="#frog"></a-entity>
     </a-entity>
 </body>
