@@ -1,151 +1,170 @@
+
 <!DOCTYPE html>
 <html>
-
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width">
-  <script src="https://aframe.io/releases/0.3.0/aframe.min.js"></script>
-  <script src="https://sdk.altvr.com/libs/altspace.js/0.28.1/altspace.min.js"></script>
-  <script src="https://cdn.rawgit.com/AltspaceVR/aframe-altspace-component/v1.4.0/dist/aframe-altspace-component.min.js"></script>
-  <script>
-    altspace.getThreeJSTrackingSkeleton().then(function (skeleton) {
-          window.head = skeleton.getJoint('Head');
-        });
-        AFRAME.registerComponent('altspace-look-at', {
-          init: function () {
-            if (!window.altspace || !altspace.inClient) { return; }
-          },
-          tick: function () {
-            if (!window.head || !this.el.object3D) { return; }
-            this.el.object3D.lookAt(window.head.position); 
-          }
-        })
-  </script>
-  <script>
-    // n-skeleton-parent only works with root meshes at the moment. Since most model loaders use a root
-    // container object, we need to collapse the model so that n-skeleton-parent can access the mesh directly.
-    AFRAME.registerComponent('collapse-model', {
+ 
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <script src="https://aframe.io/releases/0.3.0/aframe.min.js"></script>
+ 
+    <script src="https://cdn.rawgit.com/AltspaceVR/AltspaceSDK/v2.0.3/dist/altspace.min.js"></script>
+    <script>
+      altspace.getThreeJSTrackingSkeleton().then(function(skeleton) {
+        window.head = skeleton.getJoint('Head');
+      });
+ 
+      AFRAME.registerComponent('altspace-look-at', {
         init: function () {
-            this.el.addEventListener('model-loaded', function () {
-                this.el.object3DMap.mesh.updateMatrixWorld();
-                var mesh;
-                this.el.object3DMap.mesh.traverse(function (obj) {
-                    if (!mesh && obj instanceof THREE.Mesh) {
-                        mesh = obj;
-                    }
-                }.bind(this))
-                if (mesh) {
-                    mesh.scale.copy(mesh.getWorldScale());
-                    this.el.setObject3D('mesh', mesh);
-                    // setObject3D emits this event in a-frame 0.4.0
-                    this.el.emit('object3dset', {
-                        type: 'mesh'
-                    });
-                }
-            }.bind(this));
+          if(!window.altspace || !altspace.inClient) return;
+        },
+        tick: function () {
+          if(!window.head || !this.el.object3D) return;
+          this.el.object3D.lookAt(window.head.position); 
         }
-    });
-  </script>
+      });
+    </script>
+    <script>
+      // n-skeleton-parent only works with root meshes at the moment. Since most model loaders use a root
+      // container object, we need to collapse the model so that n-skeleton-parent can access the mesh directly.
+      AFRAME.registerComponent('collapse-model', {
+        init: function () {
+          this.el.addEventListener('model-loaded', function () {
+            this.el.object3DMap.mesh.updateMatrixWorld();
+ 
+            var mesh;
+            this.el.object3DMap.mesh.traverse(function (obj) {
+              if(!mesh && obj instanceof THREE.Mesh) mesh = obj;
+ 
+ 
+            }.bind(this));
+ 
+            if(mesh) {
+              mesh.scale.copy(mesh.getWorldScale());
+              this.el.setObject3D('mesh', mesh);
+              // setObject3D emits this event in a-frame 0.4.0
+              this.el.emit('object3dset', {
+                type: 'mesh'
+              });
+            }
+          }.bind(this));
+        }
+      });
+    </script>
+  </head>
   <body>
-    <a-scene altspace=fullspace:true sync-system="author: bookgirl; app: campfire">
-
+    <a-scene altspace="fullspace:true" sync-system="author: bookgirl; app: campfire">
+ 
       <a-assets>
         <a-asset-item id="grill" src="https://rawgit.com/Lia021/montreal/master/grill2/untitled.dae"></a-asset-item>
         <a-asset-item id="pighead" src="https://rawgit.com/Lia021/montreal/master/pig%20head%202/pig%20head%202.dae"></a-asset-item>
         <a-asset-item id="tent" src="https://rawgit.com/Lia021/montreal/master/tent/untitled.dae"></a-asset-item>
         <a-asset-item id="space-table" src="https://rawgit.com/Lia021/montreal/master/table%204/untitled.dae"></a-asset-item>
-          <a-asset-item id="cup" src="https://rawgit.com/Lia021/montreal/master/cup2/cup2.dae"></a-asset-item>
-          <a-asset-item id="plate" src="https://rawgit.com/Lia021/montreal/master/plate%202/plate%20%202.dae"></a-asset-item>
-          <a-asset-item id="tree" src="https://rawgit.com/Lia021/montreal/master/tree%20house/untitled.dae"></a-asset-item>
-          <a-asset-item id="knife" src="https://rawgit.com/Lia021/montreal/master/knife%202/knife%206.dae"></a-asset-item>
-         <a-asset-item id="pink" src="https://rawgit.com/Lia021/montreal/master/pink%20hat%201/untitled.dae"></a-asset-item>
+        <a-asset-item id="cup" src="https://rawgit.com/Lia021/montreal/master/cup2/cup2.dae"></a-asset-item>
+        <a-asset-item id="plate" src="https://rawgit.com/Lia021/montreal/master/plate%202/plate%20%202.dae"></a-asset-item>
+        <a-asset-item id="tree" src="https://rawgit.com/Lia021/montreal/master/tree%20house/untitled.dae"></a-asset-item>
+        <a-asset-item id="knife" src="https://rawgit.com/Lia021/montreal/master/knife%202/knife%206.dae"></a-asset-item>
+        <a-asset-item id="pink" src="https://rawgit.com/Lia021/montreal/master/pink%20hat%201/untitled.dae"></a-asset-item>
         <a-asset-item id="camp" src="https://rawgit.com/Lia021/montreal/master/camp%20chair/camp%20chair.dae"></a-asset-item>
-          <a-asset-item id="test2" src="https://rawgit.com/Lia021/montreal/master/test2/untitled.dae"></a-asset-item>
+        <a-asset-item id="test2" src="https://rawgit.com/Lia021/montreal/master/test2/untitled.dae"></a-asset-item>
         <a-asset-item id="island2" src="https://rawgit.com/Lia021/montreal/master/test4/untitled.dae"></a-asset-item>
-           <a-asset-item id="platfrom" src="https://rawgit.com/Lia021/montreal/master/platfrom%20island/untitled.dae"></a-asset-item>
+        <a-asset-item id="platfrom" src="https://rawgit.com/Lia021/montreal/master/platfrom%20island/untitled.dae"></a-asset-item>
         <a-asset-item id="plat2" src="https://rawgit.com/Lia021/montreal/master/plat2/untitled.dae"></a-asset-item>
         <a-asset-item id="plat3" src="https://rawgit.com/Lia021/montreal/master/plat3/untitled.dae"></a-asset-item>
         <a-asset-item id="frog" src="https://rawgit.com/Lia021/campsite/master/frog/frog%202.dae"></a-asset-item>
-  
-         
-        
-         <a-mixin id="knife" collada-model="#knife" collapse-model></a-mixin>
-
-        <a-mixin id="parent-to-left-hand" position="0.1 -0.03 -0.18" rotation="90 90 0" n-skeleton-parent="part: hand; side: left;" sync sync-n-skeleton-parent></a-mixin>
-
-         <a-mixin id="pink" collada-model="#pink" collapse-model></a-mixin>
-
-        <a-mixin id="parent-to-head" position="0 0.04 0.02" rotation="0 90 0" n-skeleton-parent="part:head;" sync sync-n-skeleton-parent></a-mixin>
+      </a-assets>
  
-c
-          <!--sky-->
-    <a-sky radius="400" src="http://i.imgur.com/JaI0qA5.jpg"></a-sky>
+ 
+ 
+      <a-mixin id="knife" collada-model="#knife" collapse-model></a-mixin>
+ 
+      <a-mixin id="parent-to-left-hand" position="0.1 -0.03 -0.18" rotation="90 90 0" n-skeleton-parent="part: hand; side: left;" sync sync-n-skeleton-parent></a-mixin>
+ 
+      <a-mixin id="pink" collada-model="#pink" collapse-model></a-mixin>
+ 
+      <a-mixin id="parent-to-head" position="0 0.04 0.02" rotation="0 90 0" n-skeleton-parent="part:head;" sync sync-n-skeleton-parent></a-mixin>
+ 
+ 
+ 
+      <!--sky-->
+      <a-sky radius="400" src="https://i.imgur.com/JaI0qA5.jpg"></a-sky>
+ 
       <!--grill-->
-
-      <a-entity position="3.80 -3.80 -2.70" scale="3 1.50 3" n-mesh-collider="type: environment; convex: false"  collada-model="#grill"></a-entity>
-            <!--pighead 1-->
-
+ 
+      <a-entity position="3.80 -3.80 -2.70" scale="3 1.50 3" n-mesh-collider="type: environment; convex: false" collada-model="#grill"></a-entity>
+ 
+      <!--pighead 1-->
+ 
       <a-entity position="3.30 -3.30 -2.40" scale="1.50 1.50 1.50" collada-model="#pighead"></a-entity>
-       <!--tent-->
-
-      <a-entity position="5 -3.30 -13"  rotation="0 90 0" n-mesh-collider="type: environment; convex: false" collada-model="#tent"></a-entity>
-
+ 
+      <!--tent-->
+ 
+      <a-entity position="5 -3.30 -13" rotation="0 90 0" n-mesh-collider="type: environment; convex: false" collada-model="#tent"></a-entity>
+ 
       <!--table-->
-
-      <a-entity position="5 -3.30 -13" scale="2 1 2"  rotation="0 90 0"n-mesh-collider="type: environment; convex: false" collada-model="#space-table"></a-entity>
-
+ 
+      <a-entity position="5 -3.30 -13" scale="2 1 2" rotation="0 90 0" n-mesh-collider="type: environment; convex: false" collada-model="#space-table"></a-entity>
+ 
       <!--plate-->
       <a-entity position="5 -2.57 -13" n-mesh-collider="type: environment; convex: false" collada-model="#plate"></a-entity>
+ 
       <!--pighead 2-->
-
-      <a-entity position="5 -2.80 -13.10" scale="1.50 1.50 1.50"rotation="0 -90 0" n-mesh-collider="type: environment; convex: false" collada-model="#pighead"></a-entity>
-       <!--model 7-->
-
+ 
+      <a-entity position="5 -2.80 -13.10" scale="1.50 1.50 1.50" rotation="0 -90 0" n-mesh-collider="type: environment; convex: false" collada-model="#pighead"></a-entity>
+ 
+      <!--model 7-->
+ 
       <a-entity position="4 -2.55 -13" n-mesh-collider="type: environment; convex: false" collada-model="#cup"></a-entity>
-       <a-entity position="7 -2.55 -13" n-mesh-collider="type: environment; convex: false" collada-model="#cup"></a-entity>
-          <!--tree house-->
-
-      <a-entity position="22 -1 -1"scale="2.50 2 2" rotation="0 -90 0"n-mesh-collider="type: environment; convex: false" collada-model="#tree"></a-entity>
-          <!--knife-->
-
-      <a-entity position="6 -2.50 -13" mixin="knife"rotation="90 0 0" instantiator="on: click;group: knife; mixin: knife parent-to-left-hand"></a-entity>
-      
-      
+      <a-entity position="7 -2.55 -13" n-mesh-collider="type: environment; convex: false" collada-model="#cup"></a-entity>
+ 
+      <!--tree house-->
+ 
+      <a-entity position="22 -1 -1" scale="2.50 2 2" rotation="0 -90 0" n-mesh-collider="type: environment; convex: false" collada-model="#tree"></a-entity>
+ 
+      <!--knife-->
+ 
+      <a-entity position="6 -2.50 -13" mixin="knife" rotation="90 0 0" instantiator="on: click;group: knife; mixin: knife parent-to-left-hand"></a-entity>
+ 
+ 
       <!--pink hat-->
-       <a-entity position="-0.50 -2.60 -7.50" mixin="pink" instantiator="on: click;group: pink; mixin: pink parent-to-head"></a-entity>
-     
-      <!--slop1-->
-
-      <a-entity position="24  2.20 -3"scale="2 2 2" rotation="0 -90 0"n-mesh-collider="type: environment; convex: false" collada-model="#camp"></a-entity>
-      <!--slop2-->
-
-      <a-entity position="21  2.37 -3"scale="2 2 2" rotation="0 -90 0"n-mesh-collider="type: environment; convex: false" collada-model="#camp"></a-entity>
-        <!--small island 1-->
-      <a-entity position="-64 -10 17"scale="1 1 1.50" rotation="0 19 0"n-mesh-collider="type: environment; convex: false" collada-model="#test2"></a-entity>
-      <a-entity position="-68 -10 18"scale="8 5 6" rotation="0 15 0"n-mesh-collider="type: environment; convex: false" collada-model="#platfrom"></a-entity>
+      <a-entity position="-0.50 -2.60 -7.50" mixin="pink" instantiator="on: click;group: pink; mixin: pink parent-to-head"></a-entity>
+ 
+      <!--slop 1-->
+ 
+      <a-entity position="24 2.20 -3" scale="2 2 2" rotation="0 -90 0" n-mesh-collider="type: environment; convex: false" collada-model="#camp"></a-entity>
+ 
+      <!--slop 2-->
+ 
+      <a-entity position="21 2.37 -3" scale="2 2 2" rotation="0 -90 0" n-mesh-collider="type: environment; convex: false" collada-model="#camp"></a-entity>
+ 
+      <!--small island 1-->
+      <a-entity position="-64 -10 17" scale="1 1 1.50" rotation="0 19 0" n-mesh-collider="type: environment; convex: false" collada-model="#test2"></a-entity>
+      <a-entity position="-68 -10 18" scale="8 5 6" rotation="0 15 0" n-mesh-collider="type: environment; convex: false" collada-model="#platfrom"></a-entity>
+ 
       <!--small island 2 -->
-      <a-entity position="-47 -11.70 -22"scale="7 2 1" rotation="0 15 0"n-mesh-collider="type: environment; convex: false" collada-model="#island2"></a-entity>
-      <a-entity position="-50 -13.20 -23"scale="6 2 6" rotation="0 15 0"n-mesh-collider="type: environment; convex: false" collada-model="#platfrom"></a-entity>
-      <a-entity position="-50 -13.25 -20"scale="5 1 4" rotation="0 15 0"n-mesh-collider="type: environment; convex: false" collada-model="#platfrom"></a-entity>
+      <a-entity position="-47 -11.70 -22" scale="7 2 1" rotation="0 15 0" n-mesh-collider="type: environment; convex: false" collada-model="#island2"></a-entity>
+      <a-entity position="-50 -13.20 -23" scale="6 2 6" rotation="0 15 0" n-mesh-collider="type: environment; convex: false" collada-model="#platfrom"></a-entity>
+      <a-entity position="-50 -13.25 -20" scale="5 1 4" rotation="0 15 0" n-mesh-collider="type: environment; convex: false" collada-model="#platfrom"></a-entity>
+ 
       <!--small island 3-->
-      <a-entity position="-38 -16 10"scale="1 2 5" rotation="0 19 0"n-mesh-collider="type: environment; convex: false" collada-model="#plat2"></a-entity>
-     <a-entity position="-27 -16.20 52"scale="6 1 5" rotation="0 15 0"n-mesh-collider="type: environment; convex: false" collada-model="#platfrom"></a-entity>
-       <a-entity position="-47 -14.65 -16"scale="1 1.09 1" rotation="0 19 0"n-mesh-collider="type: environment; convex: false" collada-model="#plat3"></a-entity>
-      
-      <!-- brige 1-->
-<a-box position="-20 -5 5"rotation="90 0 75"src="https://rawgit.com/Lia021/montreal/master/wood-textures-high-quality-2.jpg"n-mesh-collider="type: environment; convex: false" depth="0.3" height="24" width="5"></a-box>
-<a-box position="-43.70 -5 11.40"rotation="90 0 75"src="https://rawgit.com/Lia021/montreal/master/wood-textures-high-quality-2.jpg"n-mesh-collider="type: environment; convex: false" depth="0.3" height="25" width="5"></a-box> 
-
-      <!-- brige 2 -->
-<a-box position="-19.20 -6 -29"rotation="90 0 75"src="https://rawgit.com/Lia021/montreal/master/wood-textures-high-quality-2.jpg"n-mesh-collider="type: environment; convex: false" depth="0.3" height="24" width="5"></a-box>
-<a-box position="-35.64 -6 -24.60"rotation="90 0 75"src="https://rawgit.com/Lia021/montreal/master/wood-textures-high-quality-2.jpg"n-mesh-collider="type: environment; convex: false" depth="0.3" height="10" width="5"></a-box> 
-     
+      <a-entity position="-38 -16 10" scale="1 2 5" rotation="0 19 0" n-mesh-collider="type: environment; convex: false" collada-model="#plat2"></a-entity>
+      <a-entity position="-27 -16.20 52" scale="6 1 5" rotation="0 15 0" n-mesh-collider="type: environment; convex: false" collada-model="#platfrom"></a-entity>
+      <a-entity position="-47 -14.65 -16" scale="1 1.09 1" rotation="0 19 0" n-mesh-collider="type: environment; convex: false" collada-model="#plat3"></a-entity>
+ 
+      <!-- bridge 1-->
+      <a-box position="-20 -5 5" rotation="90 0 75" src="https://rawgit.com/Lia021/montreal/master/wood-textures-high-quality-2.jpg" n-mesh-collider="type: environment; convex: false" depth="0.3" height="24" width="5"></a-box>
+      <a-box position="-43.70 -5 11.40" rotation="90 0 75" src="https://rawgit.com/Lia021/montreal/master/wood-textures-high-quality-2.jpg" n-mesh-collider="type: environment; convex: false" depth="0.3" height="25" width="5"></a-box> 
+ 
+      <!--bridge 2-->
+      <a-box position="-19.20 -6 -29" rotation="90 0 75" src="https://rawgit.com/Lia021/montreal/master/wood-textures-high-quality-2.jpg" n-mesh-collider="type: environment; convex: false" depth="0.3" height="24" width="5"></a-box>
+      <a-box position="-35.64 -6 -24.60" rotation="90 0 75" src="https://rawgit.com/Lia021/montreal/master/wood-textures-high-quality-2.jpg" n-mesh-collider="type: environment; convex: false" depth="0.3" height="10" width="5"></a-box> 
+ 
       <!--campfire song-->
-
-    <a-entity position="7.50 -3.25 0.20">
-      <a-entity id="pc-campfire" n-sound="on: campfire; src:https://cdn.rawgit.com/Lia021/sound/master/The_Campfire_Song_Song_-_The_Campfire_Song_Song.ogg;"></a-entity>
-      <a-entity id="gear-campfire" n-sound="on: campfire; src:https://cdn.rawgit.com/Lia021/sound/master/The%20Campfire%20Song%20Song%20-%20The%20Campfire%20Song%20Song.mp3;"></a-entity>
-      <a-entity wire="on: click; emit: campfire; targets: #pc-campfire, #gear-campfire;" rotation="0 140 0" collada-model="#frog"></a-entity>
-    </a-entity>
-</body>
+ 
+      <a-entity position="7.50 -3.25 0.20">
+        <a-entity id="pc-campfire" n-sound="on: campfire; src:https://cdn.rawgit.com/Lia021/sound/master/The_Campfire_Song_Song_-_The_Campfire_Song_Song.ogg;"></a-entity>
+        <a-entity id="gear-campfire" n-sound="on: campfire; src:https://cdn.rawgit.com/Lia021/sound/master/The%20Campfire%20Song%20Song%20-%20The%20Campfire%20Song%20Song.mp3;"></a-entity>
+        <a-entity wire="on: click; emit: campfire; targets: #pc-campfire, #gear-campfire;" rotation="0 140 0" collada-model="#frog"></a-entity>
+      </a-entity>
+    </a-scene>
+  </body>
 </html>
