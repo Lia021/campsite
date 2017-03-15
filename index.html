@@ -5,7 +5,22 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width">
   <script src="https://aframe.io/releases/0.3.0/aframe.min.js"></script>
-  <script src="https://sdk.altvr.com/libs/altspace.js/2.0.3/altspace.min.js"></script>
+  <script src="https://sdk.altvr.com/libs/altspace.js/0.28.1/altspace.min.js"></script>
+  <script src="https://cdn.rawgit.com/AltspaceVR/aframe-altspace-component/v1.4.0/dist/aframe-altspace-component.min.js"></script>
+  <script>
+    altspace.getThreeJSTrackingSkeleton().then(function (skeleton) {
+          window.head = skeleton.getJoint('Head');
+        });
+        AFRAME.registerComponent('altspace-look-at', {
+          init: function () {
+            if (!window.altspace || !altspace.inClient) { return; }
+          },
+          tick: function () {
+            if (!window.head || !this.el.object3D) { return; }
+            this.el.object3D.lookAt(window.head.position); 
+          }
+        })
+  </script>
   <script>
     // n-skeleton-parent only works with root meshes at the moment. Since most model loaders use a root
     // container object, we need to collapse the model so that n-skeleton-parent can access the mesh directly.
@@ -31,7 +46,6 @@
         }
     });
   </script>
-
   <body>
     <a-scene altspace=fullspace:true sync-system="author: bookgirl; app: kitchen">
 
@@ -63,7 +77,7 @@
 
         <a-mixin id="parent-to-head" position="0 0.04 0.02" rotation="0 90 0" n-skeleton-parent="part:head;" sync sync-n-skeleton-parent></a-mixin>
  
- </a-assets>
+c
           <!--sky-->
     <a-sky radius="400" src="http://i.imgur.com/JaI0qA5.jpg"></a-sky>
       <!--grill-->
@@ -117,9 +131,7 @@
       <a-entity position="-38 -16 10"scale="1 2 5" rotation="0 19 0"n-mesh-collider="type: environment; convex: false" collada-model="#plat2"></a-entity>
      <a-entity position="-27 -16.20 52"scale="6 1 5" rotation="0 15 0"n-mesh-collider="type: environment; convex: false" collada-model="#platfrom"></a-entity>
        <a-entity position="-47 -14.65 -16"scale="1 1.09 1" rotation="0 19 0"n-mesh-collider="type: environment; convex: false" collada-model="#plat3"></a-entity>
-           <!--mounten-->
-<a-entity position="15 17 -48"scale="12 1 6" rotation="0 -26 0"n-mesh-collider="type: environment; convex: false" collada-model="#platfrom"></a-entity>
-       <a-entity position="15 6 -36"scale="1 0.1 20" rotation="0 1 0"n-mesh-collider="type: environment; convex: false" collada-model="#plat3"></a-entity>
+      
       <!-- brige 1-->
 <a-box position="-20 -5 5"rotation="90 0 75"src="https://rawgit.com/Lia021/montreal/master/wood-textures-high-quality-2.jpg"n-mesh-collider="type: environment; convex: false" depth="0.3" height="24" width="5"></a-box>
 <a-box position="-43.70 -5 11.40"rotation="90 0 75"src="https://rawgit.com/Lia021/montreal/master/wood-textures-high-quality-2.jpg"n-mesh-collider="type: environment; convex: false" depth="0.3" height="25" width="5"></a-box> 
@@ -131,8 +143,8 @@
       <!--campfire song-->
 
     <a-entity position="7.50 -3.25 0.20">
-      <a-entity id="pc-campfire"  sync="own-on: s" sync-n-sound n-sound="on: campfire; src:https://cdn.rawgit.com/Lia021/sound/master/The_Campfire_Song_Song_-_The_Campfire_Song_Song.ogg;"></a-entity>
-      <a-entity id="gear-campfire" sync="own-on: s" sync-n-sound n-sound="on: campfire; src:https://cdn.rawgit.com/Lia021/sound/master/The%20Campfire%20Song%20Song%20-%20The%20Campfire%20Song%20Song.mp3;"></a-entity>
+      <a-entity id="pc-campfire" n-sound="on: campfire; src:https://cdn.rawgit.com/Lia021/sound/master/The_Campfire_Song_Song_-_The_Campfire_Song_Song.ogg;"></a-entity>
+      <a-entity id="gear-campfire" n-sound="on: campfire; src:https://cdn.rawgit.com/Lia021/sound/master/The%20Campfire%20Song%20Song%20-%20The%20Campfire%20Song%20Song.mp3;"></a-entity>
       <a-entity wire="on: click; emit: campfire; targets: #pc-campfire, #gear-campfire;" rotation="0 140 0" collada-model="#frog"></a-entity>
     </a-entity>
 </body>
