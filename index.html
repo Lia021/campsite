@@ -1,4 +1,4 @@
-a
+
 <!DOCTYPE html>
 <html>
  
@@ -7,7 +7,7 @@ a
     <meta name="viewport" content="width=device-width">
     <script src="https://aframe.io/releases/0.3.0/aframe.min.js"></script>
  
-    <script src="https://cdn.rawgit.com/AltspaceVR/AltspaceSDK/v2.0.3/dist/altspace.min.js"></script>
+    <script src="https://cdn.rawgit.com/AltspaceVR/AltspaceSDK/v2.2.0/dist/altspace.min.js"></script>
     <script>
       altspace.getThreeJSTrackingSkeleton().then(function(skeleton) {
         window.head = skeleton.getJoint('Head');
@@ -71,6 +71,7 @@ a
         <a-asset-item id="plat2" src="https://rawgit.com/Lia021/montreal/master/plat2/untitled.dae"></a-asset-item>
         <a-asset-item id="plat3" src="https://rawgit.com/Lia021/montreal/master/plat3/untitled.dae"></a-asset-item>
         <a-asset-item id="frog" src="https://rawgit.com/Lia021/campsite/master/frog/frog%202.dae"></a-asset-item>
+        <a-asset-item id="made" src="https://rawgit.com/Lia021/campsite/master/island%20made/untitled.dae"></a-asset-item>
       </a-assets>
  
  
@@ -137,19 +138,15 @@ a
       <a-entity position="21 2.37 -3" scale="2 2 2" rotation="0 -90 0" n-mesh-collider="type: environment; convex: false" collada-model="#camp"></a-entity>
  
       <!--small island 1-->
-      <a-entity position="-64 -10 17" scale="1 1 1.50" rotation="0 19 0" n-mesh-collider="type: environment; convex: false" collada-model="#test2"></a-entity>
-      <a-entity position="-68 -10 18" scale="8 5 6" rotation="0 15 0" n-mesh-collider="type: environment; convex: false" collada-model="#platfrom"></a-entity>
- 
+       <a-entity position="-68 -8.50 18" scale="8 4 6"  n-mesh-collider="type: environment; convex: false" collada-model="#made"></a-entity>
+    
+      
       <!--small island 2 -->
-      <a-entity position="-47 -11.70 -22" scale="7 2 1" rotation="0 15 0" n-mesh-collider="type: environment; convex: false" collada-model="#island2"></a-entity>
-      <a-entity position="-50 -13.20 -23" scale="6 2 6" rotation="0 15 0" n-mesh-collider="type: environment; convex: false" collada-model="#platfrom"></a-entity>
-      <a-entity position="-50 -13.25 -20" scale="5 1 4" rotation="0 15 0" n-mesh-collider="type: environment; convex: false" collada-model="#platfrom"></a-entity>
- 
+       <a-entity position="-51 -7.50 -22" scale="6 2 5"  n-mesh-collider="type: environment; convex: false" collada-model="#made"></a-entity>
+  
       <!--small island 3-->
-      <a-entity position="-38 -16 10" scale="1 2 5" rotation="0 19 0" n-mesh-collider="type: environment; convex: false" collada-model="#plat2"></a-entity>
-      <a-entity position="-27 -16.20 52" scale="6 1 5" rotation="0 15 0" n-mesh-collider="type: environment; convex: false" collada-model="#platfrom"></a-entity>
-      <a-entity position="-47 -14.65 -16" scale="1 1.09 1" rotation="0 19 0" n-mesh-collider="type: environment; convex: false" collada-model="#plat3"></a-entity>
- 
+       <a-entity position="-35 -10 50" scale="6 2 5"  n-mesh-collider="type: environment; convex: false" collada-model="#made"></a-entity>
+    
       <!-- bridge 1-->
       <a-box position="-20 -5 5" rotation="90 0 75" src="https://rawgit.com/Lia021/montreal/master/wood-textures-high-quality-2.jpg" n-mesh-collider="type: environment; convex: false" depth="0.3" height="24" width="5"></a-box>
       <a-box position="-43.70 -5 11.40" rotation="90 0 75" src="https://rawgit.com/Lia021/montreal/master/wood-textures-high-quality-2.jpg" n-mesh-collider="type: environment; convex: false" depth="0.3" height="25" width="5"></a-box> 
@@ -165,6 +162,11 @@ a
         <a-entity id="gear-campfire"sync="own-on: campfire" sync-n-sound n-sound="on:campfire; src:https://cdn.rawgit.com/Lia021/sound/master/The%20Campfire%20Song%20Song%20-%20The%20Campfire%20Song%20Song.mp3;"></a-entity>
         <a-entity wire="on: click; emit: campfire; targets: #pc-campfire, #gear-campfire;" rotation="0 140 0" collada-model="#frog"></a-entity>
       </a-entity>
+      
+       <!--portal-->
+     
+	<a-entity position='0 -3.35 -20' rotation='0 90 0' n-portal='targetSpace: event-646459995168179056'></a-entity>
+      
     </a-scene>
   </body>
 </html>
