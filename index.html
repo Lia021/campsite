@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width">
     <script src="https://aframe.io/releases/0.3.0/aframe.min.js"></script>
  
-    <script src="https://cdn.rawgit.com/AltspaceVR/AltspaceSDK/v2.4.1/dist/altspace.min.js"></script>
+    <script src="https://cdn.rawgit.com/AltspaceVR/AltspaceSDK/v2.4.5/dist/altspace.min.js"></script>
     <script>
       altspace.getThreeJSTrackingSkeleton().then(function(skeleton) {
         window.head = skeleton.getJoint('Head');
@@ -26,30 +26,43 @@
     <script>
       // n-skeleton-parent only works with root meshes at the moment. Since most model loaders use a root
       // container object, we need to collapse the model so that n-skeleton-parent can access the mesh directly.
-      AFRAME.registerComponent('collapse-model', {
+         AFRAME.registerComponent('collapse-model', {
         init: function () {
-          this.el.addEventListener('model-loaded', function () {
-            this.el.object3DMap.mesh.updateMatrixWorld();
- 
-            var mesh;
-            this.el.object3DMap.mesh.traverse(function (obj) {
-              if(!mesh && obj instanceof THREE.Mesh) mesh = obj;
- 
- 
+            this.el.addEventListener('model-loaded', function () {
+                this.el.object3DMap.mesh.updateMatrixWorld();
+                var mesh;
+                this.el.object3DMap.mesh.traverse(function (obj) {
+                    if (!mesh && obj instanceof THREE.Mesh) {
+                        mesh = obj;
+                    }
+                }.bind(this))
+                if (mesh) {
+                    this.el.sceneEl.object3D.updateMatrixWorld(true);
+                    mesh.scale.copy(mesh.getWorldScale());
+                    this.el.setObject3D('mesh', mesh);
+                    // setObject3D emits this event in a-frame 0.4.0
+                    this.el.emit('object3dset', {
+                        type: 'mesh'
+                    });
+                }
             }.bind(this));
- 
-            if(mesh) {
-              mesh.scale.copy(mesh.getWorldScale());
-              this.el.setObject3D('mesh', mesh);
-              // setObject3D emits this event in a-frame 0.4.0
-              this.el.emit('object3dset', {
-                type: 'mesh'
-              });
-            }
-          }.bind(this));
         }
-      });
-    </script>
+    });
+  </script>
+  <script>
+    altspace.getThreeJSTrackingSkeleton().then(function (skeleton) {
+          window.head = skeleton.getJoint('Head');
+        });
+        AFRAME.registerComponent('altspace-look-at', {
+          init: function () {
+            if (!window.altspace || !altspace.inClient) { return; }
+          },
+          tick: function () {
+            if (!window.head || !this.el.object3D) { return; }
+            this.el.object3D.lookAt(window.head.position); 
+          }
+        })
+  </script>
   </head>
   <body>
     <a-scene altspace="fullspace:true" sync-system="author: bookgirl; app: campfire">
@@ -218,11 +231,6 @@
 <a-entity position="15.90 -0.33 6.88" rotation="0 232 0" scale="3 3.62 3" n-layout-browser="url:  https://video-jukebox.firebaseapp.com/"></a-entity>
 
 
-<!--inclser 2-->
-<a-entity position="7 -2.10 -15" rotation="0 90 0" scale="5 5 5"
-  			n-layout-browser="url:http://ravenworks.ca/altspace/sculpTogether/?altspace-sync-instance=-Khi9B3lPwULjJxZCogl; isEnclosure:true">
-  		</a-entity>
-
-    </a-scene>
+   
   </body>
 </html>
