@@ -4,27 +4,12 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width">
-  <script src="https://aframe.io/releases/0.3.0/aframe.min.js"></script>
-  -  <script src="https://sdk.altvr.com/libs/altspace.js/2.6.0/altspace.min.js"></script>
-    <script>
-      altspace.getThreeJSTrackingSkeleton().then(function(skeleton) {
-        window.head = skeleton.getJoint('Head');
-      });
- 
-      AFRAME.registerComponent('altspace-look-at', {
-        init: function () {
-          if(!window.altspace || !altspace.inClient) return;
-        },
-        tick: function () {
-          if(!window.head || !this.el.object3D) return;
-          this.el.object3D.lookAt(window.head.position); 
-        }
-      });
-    </script>
-    <script>
-      // n-skeleton-parent only works with root meshes at the moment. Since most model loaders use a root
-      // container object, we need to collapse the model so that n-skeleton-parent can access the mesh directly.
-         AFRAME.registerComponent('collapse-model', {
+  <script src="https://aframe.io/releases/0.7.0/aframe.min.js"></script>
+  <script src="https://sdk.altvr.com/libs/altspace.js/2.7.1/altspace.min.js"></script>
+  <script>
+    // n-skeleton-parent only works with root meshes at the moment. Since most model loaders use a root
+    // container object, we need to collapse the model so that n-skeleton-parent can access the mesh directly.
+    AFRAME.registerComponent('collapse-model', {
         init: function () {
             this.el.addEventListener('model-loaded', function () {
                 this.el.object3DMap.mesh.updateMatrixWorld();
@@ -61,9 +46,10 @@
           }
         })
   </script>
-  </head>
-  <body>
-    <a-scene altspace="fullspace:true" sync-system="author: bookgirl; app: campfire">
+</head>
+
+<body>
+  <a-scene altspace=fullspace:true>
  
       <a-assets>
         <a-asset-item id="grill" src="https://rawgit.com/Lia021/montreal/master/grill2/untitled.dae"></a-asset-item>
