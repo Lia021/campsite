@@ -5,33 +5,8 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width">
   <script src="https://aframe.io/releases/0.3.0/aframe.min.js"></script>
-  <script src="https://cdn.rawgit.com/AltspaceVR/AltspaceSDK/v2.4.5/dist/altspace.min.js"></script>
-  <script>
-    // n-skeleton-parent only works with root meshes at the moment. Since most model loaders use a root
-    // container object, we need to collapse the model so that n-skeleton-parent can access the mesh directly.
-     AFRAME.registerComponent('collapse-model', {
-        init: function () {
-            this.el.addEventListener('model-loaded', function () {
-                this.el.object3DMap.mesh.updateMatrixWorld();
-                var mesh;
-                this.el.object3DMap.mesh.traverse(function (obj) {
-                    if (!mesh && obj instanceof THREE.Mesh) {
-                        mesh = obj;
-                    }
-                }.bind(this))
-                if (mesh) {
-                    this.el.sceneEl.object3D.updateMatrixWorld(true);
-                    mesh.scale.copy(mesh.getWorldScale());
-                    this.el.setObject3D('mesh', mesh);
-                    // setObject3D emits this event in a-frame 0.4.0
-                    this.el.emit('object3dset', {
-                        type: 'mesh'
-                    });
-                }
-            }.bind(this));
-        }
-    });
-  </script>
+  <script src="https://sdk.altvr.com/libs/altspace.js/2.6.0/altspace.min.js"></script>
+ 
   <script>
     altspace.getThreeJSTrackingSkeleton().then(function (skeleton) {
           window.head = skeleton.getJoint('Head');
@@ -46,8 +21,10 @@
           }
         })
   </script>
+
   <body>
     <a-scene altspace=fullspace:true sync-system="author: bookgirl; app: campsite">
+     
       <a-assets>
       
         <a-asset-item id="grill" src="https://rawgit.com/Lia021/montreal/master/grill2/untitled.dae"></a-asset-item>
@@ -61,7 +38,6 @@
         <a-asset-item id="platfrom" src="https://rawgit.com/Lia021/montreal/master/platfrom%20island/untitled.dae"></a-asset-item>
         <a-asset-item id="plat2" src="https://rawgit.com/Lia021/montreal/master/plat2/untitled.dae"></a-asset-item>
         <a-asset-item id="plat3" src="https://rawgit.com/Lia021/montreal/master/plat3/untitled.dae"></a-asset-item>
-        <a-asset-item id="frog" src="https://rawgit.com/Lia021/campsite/master/frog/frog%202.dae"></a-asset-item>
         <a-asset-item id="made" src="https://rawgit.com/Lia021/campsite/master/island%20made/untitled.dae"></a-asset-item>
       
 
@@ -69,20 +45,11 @@
       
  
 
-  <a-mixin id="cup" collada-model="#cup" collapse-model></a-mixin>
-
-      <a-mixin id="parent-to-right-hand" position="-0.10 -0.04 -0.15" rotation="-90 90 0" n-skeleton-parent="part: hand; side: right;" sync sync-n-skeleton-parent></a-mixin>
-      
-<a-mixin id="pink" collada-model="#pink" collapse-model></a-mixin>
-
- 
-      <a-mixin id="parent-to-left-hand"scale="1.20 1.20 1.20" position="0.07 -0.04 -0.09" rotation="-90 -90 0" n-skeleton-parent="part: hand; side: left;" sync sync-n-skeleton-parent></a-mixin>
-
     </a-assets>
  
  
-      <!--sky-->
-      <a-sky radius="400" src="https://i.imgur.com/JaI0qA5.jpg"></a-sky>
+     <!--sky-->
+     <a-sky radius="800" src="https://rawgit.com/Lia021/theater-space/master/space.jpg"></a-sky>
  
       <!--grill-->
  
@@ -105,17 +72,7 @@
  
      
     
-      <!--tree house-->
  
-      <a-entity position="22 -1 -1" scale="2.50 2 2" rotation="0 -90 0" n-mesh-collider="type: environment; convex: false" collada-model="#tree"></a-entity>
- 
-      
- 
-      <!--pink hat-->
-      <a-entity position="-0.50 -2.51 -7.50" scale="1.20 1.20 1.20"mixin="happy-hat" instantiator="on: click;group: happy-hat; mixin: happy-hat parent-to-head"></a-entity>
- 
-      
-     
       <!--small island 1-->
        <a-entity position="-68 -8.50 18" scale="8 4 6"  n-mesh-collider="type: environment; convex: false" collada-model="#made"></a-entity>
     
